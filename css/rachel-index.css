@@ -13,7 +13,6 @@ html {
 }
 
 body {
-    /* background-color: #102027; */
     font-family: 'Raleway', 'Roboto', sans-serif;
     font-size: 1.6rem;
     line-height: 1.2;
@@ -37,9 +36,9 @@ a {
 }
 
 .navbar-collapse {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .navbar-nav {
@@ -53,8 +52,18 @@ a {
 .form-inline button {
     background-color: #E26276;
     border: 1px solid #000;
-    margin: 10px;
     color: #fff;
     font-weight: bold;
+    margin: 10px;
 }
+
+
+@media screen and (min-width: 992px){
+    .navbar-collapse{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
+
 
