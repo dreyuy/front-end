@@ -1,21 +1,38 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import Checkbox from '@material-ui/core/Checkbox';
-import Accordian from '@material-ui/core/Accordion';
-import AccordianDetails from '@material-ui/core/AccordionDetails';
-import AccordianSummary from '@material-ui/core/AccordionSummary';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
+import CustomAccordian from './CustomAccordian';
+import {addTreatment} from '../store/actions/treatmentFormActions';
 import { FormControlLabel, List, Typography } from '@material-ui/core';
-import {addTreatment} from '../store/actions/treatmentFormActions'
 
 const initialValues = {
-    'pine': false,
-    'relaxed': false,
-    'flowery': false,
-    'euphoric': false,
-    'uplifted': false,
+    'cramps': false,
+    'depression': false,
+    'eye pressure': false,
+    'fatigue': false,
+    'headache': false,
+    'headaches': false,
+    'inflammation': false,
+    'insomnia': false,
+    'lack of appetite': false,
+    'muscle spasms': false,
+    'nausea': false,
+    'pain': false,
+    'seizures': false,
+    'spasticity': false,
+    'stress': false,
 };
+
+const themes = [
+    {name: 'Physical',
+     properties: ['fatigue', 'headache', 'headaches', 'inflammation', 'seizures', 'eye pressure', 'nausea', 'lack of appetite']
+    }, 
+    {name: 'Muscle Pain',
+    properties: ['cramps', 'pain', 'spasticity', 'muscle spasms']
+   },
+   {name: 'Mental',
+   properties: ['stress', 'insomnia', 'depression', ]
+  }];
 
 const TreatmentForm = (props) => {
 
@@ -38,41 +55,10 @@ const TreatmentForm = (props) => {
 
 
     return (
-        <List className='treatment-form-div' style={{maxHeight: '80%', overflow: 'auto'}}>
+        <List className='treatment-form-div' style={{maxHeight: '70%', overflow: 'auto'}}>
             <h1>What do you want to treat?</h1>
             <form >
-
-                <Accordian>
-                    <AccordianSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls='list of symptoms'
-                    id='accordian-symptoms-list'
-                    >
-                            <Typography
-                            className='accordian-title'
-                            >Gastrointestinal Symptoms</Typography>
-                    </AccordianSummary>
-                    
-                    <AccordianDetails className='treatment-form'> 
-
-                        <FormControlLabel
-                        label='pine'
-                        labelPlacement='end'
-                        control={
-                            <Checkbox
-                            className='form-input'
-                            type='checkbox'
-                            color='secondary'
-                            name='pine'
-                            checked={formValues.pine}
-                            onChange={checkHandler} // to add in click handler
-                            />} 
-                        />
-
-                    </AccordianDetails>
-                </Accordian>
-
-
+                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues}/>)}
                 <Button variant='contained' color='secondary' className='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
             </form>
         </List>
