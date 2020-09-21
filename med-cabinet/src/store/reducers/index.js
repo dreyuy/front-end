@@ -7,10 +7,10 @@ import {
 const initialState = {
     username: '',
     password: '', 
-    savedStrains: [],
-    formSelections: [],
     error: '',
     isFetching: false, 
+    savedStrains: [],
+    formSelections: [],
 }
 
 export const reducer = (state = initialState, action) => {
@@ -18,18 +18,21 @@ export const reducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TREATMENT: // to change
             return {
-                // ...state,
-                // movies: [...state.movies, action.payload]
+                ...state,
+                isFetching: true,
+                formSelections: [...state.formSelections, action.payload],
             }
         case ADD_TREATMENT_SUCCESS: // to change
             return {
-                // ...state,
-                // movies: [...state.movies, action.payload]
+                ...state,
+                isFetching: false,
+                formSelections: [...state.formSelections, action.payload]
             }
         case ADD_TREATMENT_ERROR: // to change
             return {
-                // ...state,
-                // movies: [...state.movies, action.payload]
+                ...state,
+                isFetching: false,
+                error: action.payload.message,
             }
         default: 
             return state;
