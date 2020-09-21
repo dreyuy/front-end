@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.treatment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.treatment-form-div {
+  width: 25%;
+}
+
+.treatment-form button {
+  width: 50%;
+  margin: 2% auto;
+}
+
+#profile-img {
+  width: 30%;
+}
+
+.profile-card {
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-credentials-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
