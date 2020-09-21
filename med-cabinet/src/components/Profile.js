@@ -2,11 +2,12 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import { CardMedia } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Profile = () => {
     
     return (
-        <Card className='profile-card'>
+        <Card className='profile-card' variant='outlined'>
             <CardMedia
             component='img'
             id='profile-img'
@@ -15,7 +16,10 @@ const Profile = () => {
             <div className='profile-credentials-div'>
                 <h3>USERNAME: </h3>
                 <h3>EMAIL: </h3>
-                <EditIcon/>
+                <div>
+                    <EditIcon/><p>Edit Information</p>
+                    <DeleteIcon/><p>Delete Account</p>
+                </div>
             </div>
         </Card>
     )
