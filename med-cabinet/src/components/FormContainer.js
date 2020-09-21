@@ -6,11 +6,14 @@ import FormTabs from './FormTabs'
 
 const FormWrapper = withStyles({
     root: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
+      display: 'flex',  
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: "100%",
+      height: "100vh",
     }
-})(Box)
+  })(Box)
 
 
 

@@ -20,13 +20,13 @@ const FormTabs = () => {
             <TabContext value={tab}>
                 <TabList onChange={onChange}>
                     <Tab  
-                    label='Sign in' value='1'/>
+                    label='Login' value='1'/> 
                     <Tab 
-                    label='Sign up' value='2'/>
+                    label='Sign up' value='2'/> 
                 </TabList>
                 <TabPanel value='1'>
                     <Login />
-                </TabPanel>
+                </TabPanel> 
                 <TabPanel value='2'>
                     <SignUp />
                 </TabPanel>
