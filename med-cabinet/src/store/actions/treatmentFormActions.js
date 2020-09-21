@@ -10,10 +10,22 @@ export const addTreatment = () => {
     return (dispatch) => {
         dispatch({ type: ADD_TREATMENT});
         axios
-            .get('linktogohere') // to update
-            .then(res => console.log(res))
-            // dispatch({ type: ADD_TREATMENT_SUCCESS, payload: response.data.all })
-            .catch(err => console.log(err));
-            // dispatch({ type: ADD_TREATMENT_ERROR, payload: { message: 'Can not return for you' } })
+            .get('test') // to update
+            .then(res => {
+                console.log(res);
+                dispatch({
+                    type: ADD_TREATMENT_SUCCESS, 
+                    payload: res.data.all
+                })
+            })
+            .catch(err => {
+                console.log(err)
+                dispatch({
+                    type: ADD_TREATMENT_ERROR,
+                    payload: {
+                        message: 'Cant return'
+                    }
+                })
+            });
     }
 }

@@ -14,7 +14,7 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-    console.log(action, 'REDUCER CONSOLE')
+    console.log("ACTION FROM OUR REDUCER ===>", action);
     switch(action.type) {
         case ADD_TREATMENT: // to change
             return {
