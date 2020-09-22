@@ -14,6 +14,10 @@ export const DELETE_PROFILE = 'DELETE_PROFILE'
 export const DELETE_PROFILE_SUCCESS = 'DELETE_PROFILE_SUCCESS'
 export const DELETE_PROFILE_ERROR = 'DELETE_PROFILE_ERROR'
 
+// url
+const url = 'https://medswap.herokuapp.com/api/'
+
+
 // action creators
 
 // Add Treatment Action
@@ -52,13 +56,14 @@ export const addTreatment = (info) => {
 //     }
 // }
 
-// // Delete Profile Action
-// export const deleteProfile = () => {
-//     return (dispatch) => {
-//         dispatch({ type: DELETE_PROFILE});
-//         axios
-//             .put(`auth/${id}`, credentials) // to update 
-//             .then(res => console.log(res))
-//             .catch(err => console.log(err))
-//     }
-// }
+// Delete Profile Action
+export const deleteProfile = (user) => {
+    console.log(user, "DELETE PROFILE ACTION")
+    return (dispatch) => {
+        dispatch({ type: DELETE_PROFILE});
+        axios
+            .put(`${url}auth/${user.id}`, user) // to update 
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
+}

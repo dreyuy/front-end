@@ -12,11 +12,21 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Register /> */}
-        {/* <Login />
-        <PrivateRoute exact path='/protected' component={null}/> */}
-        {/* <TreatmentForm /> */}
-        <Profile />
+
+        <Route exact path='/register'>
+          <Register />
+        </Route>
+
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+
+        <PrivateRoute exact path='/protected' component={TreatmentForm}/> 
+        
+        <Route exact path='/profile/:id'>
+          <Profile />
+        </Route>
+        
       </div>
     </Router>
   );

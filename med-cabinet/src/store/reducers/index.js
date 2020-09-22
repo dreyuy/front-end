@@ -12,7 +12,7 @@ import {
 } from '../actions'
 
 const initialState = {
-    username: 'fake.com',
+    email: '',
     password: '', 
     error: '',
     cramps: false,
