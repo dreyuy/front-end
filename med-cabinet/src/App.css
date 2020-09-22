@@ -46,9 +46,9 @@
   width: 25%;
 }
 
-.treatment-form button {
+#treatment-form-button {
   width: 50%;
-  margin: 2% auto;
+  margin: 5% auto;
 }
 
 #profile-img {

@@ -5,7 +5,8 @@ import {
 } from '../actions'
 
 const initialState = {
-    username: '',
+    username: 'fake.com',
+    email: 'fake@email.com',
     password: '', 
     error: '',
     isFetching: false, 

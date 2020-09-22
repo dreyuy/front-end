@@ -59,7 +59,7 @@ const TreatmentForm = (props) => {
             <h1>What do you want to treat?</h1>
             <form >
                 {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues}/>)}
-                <Button variant='contained' color='secondary' className='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
+                <Button variant='contained' color='secondary' id='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
             </form>
         </List>
     )
