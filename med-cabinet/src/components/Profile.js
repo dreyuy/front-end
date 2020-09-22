@@ -7,6 +7,10 @@ import { connect } from 'react-redux';
 
 const Profile = (props) => {
     const {username, email} = props;
+
+    const clickHandler = (evt) => {
+        evt.preventDefault();
+    }
     
     return (
         <Card className='profile-card' variant='outlined'>
@@ -19,8 +23,8 @@ const Profile = (props) => {
                 <h3>USERNAME: {username}</h3>
                 <h3>EMAIL: {email}</h3>
                 <div>
-                    <EditIcon/><p>Edit Information</p>
-                    <DeleteIcon/><p>Delete Account</p>
+                    <span onClick={null} className='profile-adjustment-links'><EditIcon/><p>Edit Information</p></span>
+                    <span onClick={null} className='profile-adjustment-links'><DeleteIcon color='secondary'/><p className='delete-profile-text'>Delete Account</p></span>
                 </div>
             </div>
         </Card>
