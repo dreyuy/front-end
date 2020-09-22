@@ -17,7 +17,7 @@ const Profile = (props) => {
             <CardMedia
             component='img'
             id='profile-img'
-            src={require('/Users/davidgold/Documents/lambdaSchool/projects/unit 3/build-week/front-end/med-cabinet/src/assets/power-moves (1).png')}
+            src={require('/Users/davidgold/Documents/lambdaSchool/projects/unit 3/build-week/front-end/med-cabinet/src/assets/Empty User.png')}
             />
             <div className='profile-credentials-div'>
                 <h3>USERNAME: {username}</h3>

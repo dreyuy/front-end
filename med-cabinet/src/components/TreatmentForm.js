@@ -23,16 +23,20 @@ const initialValues = {
     'stress': false,
 };
 
-const themes = [
-    {name: 'Physical',
-     properties: ['fatigue', 'headache', 'headaches', 'inflammation', 'seizures', 'eye pressure', 'nausea', 'lack of appetite']
+// object of array to help properly sort the accordian lists
+const themes = [ {
+    name: 'Physical',
+    properties: ['fatigue', 'headache', 'headaches', 'inflammation', 'seizures', 'eye pressure', 'nausea', 'lack of appetite']
     }, 
-    {name: 'Muscle Pain',
+    {
+    name: 'Muscle Pain',
     properties: ['cramps', 'pain', 'spasticity', 'muscle spasms']
    },
-   {name: 'Mental',
-   properties: ['stress', 'insomnia', 'depression', ]
-  }];
+   {
+    name: 'Mental',
+    properties: ['stress', 'insomnia', 'depression']
+  },
+];
 
 const TreatmentForm = (props) => {
 

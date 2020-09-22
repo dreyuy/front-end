@@ -6,12 +6,25 @@ import {
 
 const initialState = {
     username: 'fake.com',
-    email: 'fake@email.com',
     password: '', 
     error: '',
+    cramps: false,
+    depression: false,
+    eyePressure: false,
+    fatigue: false,
+    headache: false,
+    headaches: false,
+    inflammation: false,
+    insomnia: false,
+    lackOfAppetite: false,
+    muscleSpasms: false,
+    nausea: false,
+    pain: false,
+    seizures: false,
+    spasticity: false,
+    stress: false,
     isFetching: false, 
     savedStrains: [],
-    formSelections: [],
 }
 
 export const reducer = (state = initialState, action) => {
