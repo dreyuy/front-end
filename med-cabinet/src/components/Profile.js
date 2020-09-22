@@ -39,7 +39,7 @@ const Profile = (props) => {
                 </div>
             </div>
         </Card>
-        {isClicked && <Card className='delete-are-you-sure'>
+        {isClicked && <Card id='delete-are-you-sure'>
             Are you sure? 
             <span>Yes</span>
             <span>No</span>
