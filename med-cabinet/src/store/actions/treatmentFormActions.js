@@ -17,11 +17,11 @@ export const DELETE_PROFILE_ERROR = 'DELETE_PROFILE_ERROR'
 // action creators
 
 // Add Treatment Action
-export const addTreatment = () => {
+export const addTreatment = (info) => {
     return (dispatch) => {
         dispatch({ type: ADD_TREATMENT});
         axios
-            .get('test') // to update
+            // .post(`ailments/${id}`, info) // to update
             .then(res => {
                 console.log(res);
                 dispatch({
@@ -57,7 +57,7 @@ export const addTreatment = () => {
 //     return (dispatch) => {
 //         dispatch({ type: DELETE_PROFILE});
 //         axios
-//             .put('auth/', credentials) // to update 
+//             .put(`auth/${id}`, credentials) // to update 
 //             .then(res => console.log(res))
 //             .catch(err => console.log(err))
 //     }
