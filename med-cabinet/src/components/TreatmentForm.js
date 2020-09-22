@@ -60,7 +60,7 @@ const TreatmentForm = (props) => {
 
     return (
         <List className='treatment-form-div' style={{maxHeight: '70%', overflow: 'auto'}}>
-            <h1>What do you want to treat?</h1>
+            <h3>What do you want to treat?</h3>
             <form >
                 {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues}/>)}
                 <Button variant='contained' color='secondary' id='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
