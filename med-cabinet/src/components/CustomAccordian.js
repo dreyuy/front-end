@@ -10,6 +10,7 @@ import SpecificSymptoms from './SpecificSymptoms';
 
 const CustomAccordian = ({checkHandler, formValues, properties, name}) => {
     
+    const arr = (formValues.map((item) => Object.keys(item))).flat();
 
     return (
     <Accordian>
@@ -24,7 +25,7 @@ const CustomAccordian = ({checkHandler, formValues, properties, name}) => {
         
         </AccordianSummary>
         {
-        Object.keys(formValues).map((symptoms) => (
+        arr.map((symptoms) => (
            properties.includes(symptoms) && <SpecificSymptoms symptoms={symptoms} formValues={formValues} checkHandler={checkHandler}/>
         ))
         }

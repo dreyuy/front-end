@@ -38,14 +38,14 @@ const themes = [ {
   },
 ];
 
-const TreatmentForm = (props) => {
+const TreatmentForm = ({symptoms, addTreatment}) => {
 
-    const [formValues, setFormValues] = useState(initialValues)
+    const [formValues, setFormValues] = useState({symptoms})
 
     const submitHandler = (evt) => {
         evt.preventDefault();
         console.log(formValues);
-        props.addTreatment(formValues);
+        addTreatment(formValues);
     }
 
     const checkHandler = (evt) => {
@@ -62,7 +62,7 @@ const TreatmentForm = (props) => {
         <List className='treatment-form-div' style={{maxHeight: '70%', overflow: 'auto'}}>
             <h3>What do you want to treat?</h3>
             <form >
-                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues}/>)}
+                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues.symptoms}/>)}
                 <Button variant='contained' color='secondary' id='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
             </form>
         </List>
@@ -71,7 +71,7 @@ const TreatmentForm = (props) => {
 
 const mapStateToProps = state => {
     return {
-        formSelections: state.formSelections, 
+        symptoms: state.symptoms, 
     }
 }
 
