@@ -22,6 +22,7 @@ const initialState = {
     error: '',
     isFetching: false,
     savedStrains: [],
+    clickedSymptoms: [],
     symptoms: [
         {'cramps': false}, 
         {'depression': false}, 
@@ -44,17 +45,18 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
     console.log("ACTION FROM OUR REDUCER ===>", action);
     switch(action.type) {
-        case ADD_TREATMENT: // to change
+        case ADD_TREATMENT: 
+            
             return {
                 ...state,
                 isFetching: true,
-                formSelections: [...state.formSelections, action.payload],
+                symptoms: [...state.symptoms, action.payload]
             }
         case ADD_TREATMENT_SUCCESS: // to change
             return {
                 ...state,
                 isFetching: false,
-                formSelections: [...state.formSelections, action.payload]
+                symptoms: [...state.symptoms, action.payload]
             }
         case ADD_TREATMENT_ERROR: // to change
             return {
@@ -66,7 +68,6 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: true,
-                formSelections: [...state.formSelections, action.payload],
             }
         case EDIT_PROFILE_SUCCESS: // to change
             return {

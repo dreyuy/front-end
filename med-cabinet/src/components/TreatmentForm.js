@@ -5,24 +5,6 @@ import CustomAccordian from './CustomAccordian';
 import {addTreatment} from '../store/actions/treatmentFormActions';
 import { FormControlLabel, List, Typography } from '@material-ui/core';
 
-const initialValues = {
-    'cramps': false,
-    'depression': false,
-    'eye pressure': false,
-    'fatigue': false,
-    'headache': false,
-    'headaches': false,
-    'inflammation': false,
-    'insomnia': false,
-    'lack of appetite': false,
-    'muscle spasms': false,
-    'nausea': false,
-    'pain': false,
-    'seizures': false,
-    'spasticity': false,
-    'stress': false,
-};
-
 // object of array to help properly sort the accordian lists
 const themes = [ {
     name: 'Physical',
@@ -38,31 +20,32 @@ const themes = [ {
   },
 ];
 
-const TreatmentForm = ({symptoms, addTreatment}) => {
-
-    const [formValues, setFormValues] = useState({symptoms})
+const TreatmentForm = ({symptoms, addTreatment, clickedSymptoms}) => {
+    const [formValues, setFormValues] = useState(symptoms)
 
     const submitHandler = (evt) => {
         evt.preventDefault();
-        console.log(formValues);
         addTreatment(formValues);
     }
 
     const checkHandler = (evt) => {
         evt.preventDefault();
+        console.log(evt.target.name);
+        console.log(formValues);
+        console.log(symptoms, "SYMPTOMS");
         const {name, checked} = evt.target;
-        setFormValues({
+        setFormValues([
             ...formValues,
-            [name]: checked,
-        })
+            {[name]: checked}
+        ])
+        console.log(formValues)
     }
-
 
     return (
         <List className='treatment-form-div' style={{maxHeight: '70%', overflow: 'auto'}}>
             <h3>What do you want to treat?</h3>
             <form >
-                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues.symptoms}/>)}
+                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues}/>)}
                 <Button variant='contained' color='secondary' id='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
             </form>
         </List>
@@ -71,7 +54,8 @@ const TreatmentForm = ({symptoms, addTreatment}) => {
 
 const mapStateToProps = state => {
     return {
-        symptoms: state.symptoms, 
+        symptoms: state.symptoms,
+        clickSymptoms: state.clickSymptoms, 
     }
 }
 

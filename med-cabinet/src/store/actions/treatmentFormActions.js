@@ -61,6 +61,7 @@ export const loginUser = (info) => {
 export const registerUser = (info) => {
     console.log(info)
     return (dispatch) => {
+        console.log(dispatch);
         dispatch({ type: REGISTER_USER })
         axios
             .post(`${url}auth/register`, info)
@@ -80,6 +81,7 @@ export const registerUser = (info) => {
 
 // Add Treatment Action
 export const addTreatment = (info) => {
+    console.log(info)
     return (dispatch) => {
         dispatch({ type: ADD_TREATMENT});
         axios
