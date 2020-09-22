@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { TextField, Button } from '@material-ui/core'
 import * as yup from 'yup' 
 import schema from '../utils/schema'
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 const defaultValues = {
     email: '',
@@ -13,8 +14,6 @@ const defaultErrors ={
     email: '',
     password: '',
 }
-
-
 
 const Login = () => {
     const [values, setValues] = useState(defaultValues)
@@ -38,7 +37,21 @@ const Login = () => {
         setValues({ ...values, [name]: value });
       };
 
+      const loginHandler = (evt) => {
+          evt.preventDefault();
+          axiosWithAuth()
+            .post('auth/login', values)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+      }
 
+    //   .then(res => {
+    //       localStorage.setItem('token', res.data.payload);
+    //       history.push('/protected')
+    //   })
+    //   .catch(err => {
+    //       setErrors(err.response.data.payload)
+    //   })
 
     return (
         <form>
@@ -56,6 +69,7 @@ const Login = () => {
             />
 
             <Button 
+            onClick={null}
             variant="contained" 
             color="primary">
                 Login
