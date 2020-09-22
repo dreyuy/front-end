@@ -4,6 +4,8 @@ import * as yup from 'yup'
 import schema from '../utils/schema'
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import {registerUser} from '../store/actions/treatmentFormActions';
+import { connect } from 'react-redux';
 
 const defaultValues ={
     email: '',
@@ -15,11 +17,9 @@ const defaultErrors = {
     password: '',    
 }
 
-const SignUp = () => {
+const SignUp = ({registerUser}) => {
     const [values, setValues] = useState(defaultValues)
-    const [errors, setErrors] = useState(defaultErrors)
-    const history = useHistory();
-    
+    const [errors, setErrors] = useState(defaultErrors)    
       
     const validate = (name, value) => {
         yup
@@ -40,15 +40,8 @@ const SignUp = () => {
       
     const onSubmit = (evt) => {
         evt.preventDefault();
-        console.log('SUBMITHANDLER')
-        axios
-            .post('https://medswap.herokuapp.com/api/auth/register', values)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-            .finally(res => {
-                setValues(defaultValues)
-                // history.push('/TOEDITPAGE')
-            });
+        console.log('SUBMITHANDLER', values)
+        registerUser(values)
     };
     
     return (
@@ -71,16 +64,6 @@ const SignUp = () => {
             value={values.password}
             /> <br/>
 
-            <TextField
-            id="date"
-            label="Birthday"
-            type="date"
-            defaultValue="2020-05-24"
-            InputLabelProps={{
-            shrink: true,
-            }}
-            />
-
             <Button 
             onClick={onSubmit}
             variant="contained" 
@@ -92,4 +75,11 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+const mapStateToProps = state => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps, {registerUser})(SignUp);
+

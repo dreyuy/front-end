@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import { TextField, Button } from '@material-ui/core'
 import * as yup from 'yup' 
 import schema from '../utils/schema'
-import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {loginUser} from '../store/actions/treatmentFormActions';
+import { connect } from 'react-redux';
 
 const defaultValues = {
     email: '',
@@ -15,7 +17,7 @@ const defaultErrors ={
     password: '',
 }
 
-const Login = () => {
+const Login = ({loginUser}) => {
     const [values, setValues] = useState(defaultValues)
     const [errors, setErrors] = useState(defaultErrors)
 
@@ -32,26 +34,15 @@ const Login = () => {
       };
     
       const onChange = (evt) => {
+        evt.preventDefault();
         const { name, value } = evt.target;
-        validate(name, value);
         setValues({ ...values, [name]: value });
       };
 
       const loginHandler = (evt) => {
           evt.preventDefault();
-          axiosWithAuth()
-            .post('auth/login', values)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+          loginUser(values);
       }
-
-    //   .then(res => {
-    //       localStorage.setItem('token', res.data.payload);
-    //       history.push('/protected')
-    //   })
-    //   .catch(err => {
-    //       setErrors(err.response.data.payload)
-    //   })
 
     return (
         <form>
@@ -60,16 +51,20 @@ const Login = () => {
             variant='filled'
             type='email'
             label='Email'
+            value={values.email}
+            onChange={onChange}
             />
             <TextField 
             name='password'
             variant='filled'
             type = 'Password'
             label='Password'
+            value={values.password}
+            onChange={onChange}
             />
 
             <Button 
-            onClick={null}
+            onClick={loginHandler}
             variant="contained" 
             color="primary">
                 Login
@@ -79,4 +74,10 @@ const Login = () => {
     )
 }
 
-export default Login
+const mapStateToProps = state => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps, {loginUser})(Login);
