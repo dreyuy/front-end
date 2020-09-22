@@ -39,7 +39,7 @@ export const loginUser = (info) => {
             .then(res => {
                 console.log(res, "<==== SUCCESSFUL LOGIN DATA");
                 localStorage.setItem('token', res.data.token)
-                window.location('/protected')
+                window.location = "http://localhost:3000/protected"; // to change
                 dispatch({
                     type: LOGIN_USER_SUCCESS, 
                     payload: res.data.all

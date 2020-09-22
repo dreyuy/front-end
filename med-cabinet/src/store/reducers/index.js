@@ -11,6 +11,9 @@ import {
     LOGIN_USER,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
+    REGISTER_USER,
+    REGISTER_USER_SUCCESS,
+    REGISTER_USER_ERROR,
 } from '../actions'
 
 const initialState = {
@@ -20,21 +23,21 @@ const initialState = {
     isFetching: false,
     savedStrains: [],
     symptoms: [
-        {cramps: false}, 
-        {depression: false}, 
-        {eyePressure: false},
-        {fatigue: false}, 
-        {headache: false},
-        {headaches: false},
-        {inflammation: false}, 
-        {insomnia: false}, 
-        {lackOfAppetite: false}, 
-        {muscleSpasms: false}, 
-        {nausea: false}, 
-        {pain: false}, 
-        {seizures: false}, 
-        {spasticity: false},
-        {stress: false}
+        {'cramps': false}, 
+        {'depression': false}, 
+        {'eye pressure': false},
+        {'fatigue': false}, 
+        {'headache': false},
+        {'headaches': false},
+        {'inflammation': false}, 
+        {'insomnia': false}, 
+        {'lack of appetite': false}, 
+        {'muscle spasms': false}, 
+        {'nausea': false}, 
+        {'pain': false}, 
+        {'seizures': false}, 
+        {'spasticity': false},
+        {'stress': false}
     ]
 }
 
@@ -94,22 +97,39 @@ export const reducer = (state = initialState, action) => {
                 isFetching: false,
                 error: action.payload.message,
             }
-        case LOGIN_USER: // to change
+        case LOGIN_USER: 
             return {
                 ...state,
                 isFetching: true,
             }
-        case LOGIN_USER_SUCCESS: // to change
+        case LOGIN_USER_SUCCESS: 
             return {
                 ...state,
                 isFetching: false,
             }
-        case LOGIN_USER_ERROR: // to change
+        case LOGIN_USER_ERROR: 
             return {
                 ...state,
                 isFetching: false,
                 error: action.payload.message,
             }
+        case REGISTER_USER: 
+            return {
+                ...state,
+                isFetching: true,
+            }
+        case REGISTER_USER_SUCCESS: 
+            return {
+                ...state,
+                isFetching: false,
+            }
+        case REGISTER_USER_ERROR: 
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload.message,
+            }
+
         default: 
             return state;
     }
