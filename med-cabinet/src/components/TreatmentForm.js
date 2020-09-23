@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import CustomAccordian from './CustomAccordian';
@@ -20,8 +20,12 @@ const themes = [ {
   },
 ];
 
-const TreatmentForm = ({symptoms, addTreatment, clickedSymptoms}) => {
+const TreatmentForm = ({ symptoms, addTreatment }) => {
     const [formValues, setFormValues] = useState(symptoms)
+
+    useEffect(() => {
+        console.log(formValues)
+    }, [formValues])
 
     const submitHandler = (evt) => {
         evt.preventDefault();
@@ -29,14 +33,11 @@ const TreatmentForm = ({symptoms, addTreatment, clickedSymptoms}) => {
     }
 
     const checkHandler = (name, value) => {
-        console.log(value)
         setFormValues({
             ...formValues,
             [name]: value,
         })
     }
-
-    console.log(formValues)
 
     return (
         <List className='treatment-form-div' style={{maxHeight: '70%', overflow: 'auto'}}>

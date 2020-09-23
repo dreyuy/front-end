@@ -81,13 +81,13 @@ export const registerUser = (info) => {
 
 // Add Treatment Action
 export const addTreatment = (info) => {
-    console.log(info)
+    console.log(info, "WHATS BEING SENT FOR TREATMENT")
     return (dispatch) => {
         dispatch({ type: ADD_TREATMENT});
-        axios
-            // .post(`ailments/${id}`, info) // to update
+        axiosWithAuth()
+            .post(`${url}savedstrains`, info) // to update
             .then(res => {
-                console.log(res);
+                console.log(res, "ACTION CONSOLEEE");
                 dispatch({
                     type: ADD_TREATMENT_SUCCESS, 
                     payload: res.data.all

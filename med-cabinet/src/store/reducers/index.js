@@ -22,7 +22,6 @@ const initialState = {
     error: '',
     isFetching: false,
     savedStrains: [],
-    clickedSymptoms: [],
     symptoms: {
         'cramps': false, 
         'depression': false, 
@@ -46,17 +45,18 @@ export const reducer = (state = initialState, action) => {
     console.log("ACTION FROM OUR REDUCER ===>", action);
     switch(action.type) {
         case ADD_TREATMENT: 
-            
             return {
                 ...state,
                 isFetching: true,
-                symptoms: [...state.symptoms, action.payload]
             }
         case ADD_TREATMENT_SUCCESS: // to change
             return {
                 ...state,
                 isFetching: false,
-                symptoms: [...state.symptoms, action.payload]
+                symptoms: {
+                    ...state.symptoms,
+                    action
+                }
             }
         case ADD_TREATMENT_ERROR: // to change
             return {
