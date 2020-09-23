@@ -23,23 +23,23 @@ const initialState = {
     isFetching: false,
     savedStrains: [],
     clickedSymptoms: [],
-    symptoms: [
-        {'cramps': false}, 
-        {'depression': false}, 
-        {'eye pressure': false},
-        {'fatigue': false}, 
-        {'headache': false},
-        {'headaches': false},
-        {'inflammation': false}, 
-        {'insomnia': false}, 
-        {'lack of appetite': false}, 
-        {'muscle spasms': false}, 
-        {'nausea': false}, 
-        {'pain': false}, 
-        {'seizures': false}, 
-        {'spasticity': false},
-        {'stress': false}
-    ]
+    symptoms: {
+        'cramps': false, 
+        'depression': false, 
+        'eye pressure': false,
+        'fatigue': false, 
+        'headache': false,
+        'headaches': false,
+        'inflammation': false, 
+        'insomnia': false, 
+        'lack of appetite': false, 
+        'muscle spasms': false, 
+        'nausea': false, 
+        'pain': false, 
+        'seizures': false, 
+        'spasticity': false,
+        'stress': false,
+    }
 }
 
 export const reducer = (state = initialState, action) => {

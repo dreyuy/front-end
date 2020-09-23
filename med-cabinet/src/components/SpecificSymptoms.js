@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import AccordianDetails from '@material-ui/core/AccordionDetails';
 import { FormControlLabel } from '@material-ui/core';
 
 const SpecificSymptoms = ({symptoms, formValues, checkHandler, theme}) => {
-    
+    const [isChecked, setIsChecked] = useState(false);
+
+    const clickHandler = (evt) => {
+        const {name, value} = evt.target;
+        evt.preventDefault();
+        setIsChecked(!isChecked);
+        if (value === 'true') {
+            checkHandler(name, true)
+        } else {
+            checkHandler(name, false)
+        }
+    }
 
     return (
         <AccordianDetails className='treatment-form'> 
@@ -18,8 +29,9 @@ const SpecificSymptoms = ({symptoms, formValues, checkHandler, theme}) => {
                 type='checkbox'
                 color='secondary'
                 name={symptoms}
-                checked={formValues.symptoms}
-                onChange={checkHandler} 
+                value={isChecked}
+                checked={isChecked}
+                onClick={clickHandler}
                 />} 
             />
 

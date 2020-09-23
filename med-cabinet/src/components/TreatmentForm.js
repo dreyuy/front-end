@@ -28,24 +28,21 @@ const TreatmentForm = ({symptoms, addTreatment, clickedSymptoms}) => {
         addTreatment(formValues);
     }
 
-    const checkHandler = (evt) => {
-        evt.preventDefault();
-        console.log(evt.target.name);
-        console.log(formValues);
-        console.log(symptoms, "SYMPTOMS");
-        const {name, checked} = evt.target;
-        setFormValues([
+    const checkHandler = (name, value) => {
+        console.log(value)
+        setFormValues({
             ...formValues,
-            {[name]: checked}
-        ])
-        console.log(formValues)
+            [name]: value,
+        })
     }
+
+    console.log(formValues)
 
     return (
         <List className='treatment-form-div' style={{maxHeight: '70%', overflow: 'auto'}}>
             <h3>What do you want to treat?</h3>
             <form >
-                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues}/>)}
+                {themes.map((theme) => <CustomAccordian properties={theme.properties} name={theme.name} checkHandler={checkHandler} formValues={formValues} />)}
                 <Button variant='contained' color='secondary' id='treatment-form-button' onClick={submitHandler}> Suggest Strains</Button>
             </form>
         </List>

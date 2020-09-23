@@ -8,10 +8,8 @@ import { FormControlLabel, List, Typography } from '@material-ui/core';
 import SpecificSymptoms from './SpecificSymptoms';
 
 
-const CustomAccordian = ({checkHandler, formValues, properties, name}) => {
+const CustomAccordian = ({checkHandler, formValues, properties, name, isChecked}) => {
     
-    const arr = (formValues.map((item) => Object.keys(item))).flat();
-
     return (
     <Accordian>
            
@@ -25,8 +23,8 @@ const CustomAccordian = ({checkHandler, formValues, properties, name}) => {
         
         </AccordianSummary>
         {
-        arr.map((symptoms) => (
-           properties.includes(symptoms) && <SpecificSymptoms symptoms={symptoms} formValues={formValues} checkHandler={checkHandler}/>
+        Object.keys(formValues).map((symptoms) => (
+           properties.includes(symptoms) && <SpecificSymptoms symptoms={symptoms} formValues={formValues} checkHandler={checkHandler} />
         ))
         }
     </Accordian>
