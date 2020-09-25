@@ -1,0 +1,326 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0;
+    position: relative;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --------- Header ----------- */
+
+.navbar-brand span{
+    font-weight: 700;
+}
+
+.navbar-collapse {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.form-inline {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.form-inline button {
+    background-color: #E26276;
+    border: 1px solid #000;
+    color: #fff;
+    font-weight: bold;
+    margin: 10px;
+}
+
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 25px;
+}
+/*--------------dosing body-------------*/
+.container {
+    width: 992px;
+}
+.ladder {
+    width: 15%;
+    height: auto;
+}
+.edible{
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+}
+.intro {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    flex-wrap: nowrap;
+    background-color: #ff8799;
+    padding: 20px;
+    border-radius: 10px;
+}
+.intro-content{
+    margin-top: 25px;
+    text-align: right;
+}
+table {
+    width: 100%;
+}
+table, th, td {
+    border: 2px solid black;
+    color: black;
+    margin: 10px;
+}
+th,td {
+    padding: 5px;
+    text-align: center;
+}
+#t01 th {
+    color: white;
+    background-color: #E26276;
+}
+#t01 tr:nth-child(odd) {
+    background-color: #E26276;
+}
+#t01 tr:nth-child(even) {
+   background-color: #ff8799;
+}
+/*------------footer---------------*/
+.footer-nav{
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+    padding: 20px;
+    color: black;
+    margin-top: 30px;
+}
+.nav-link{
+    color: black;
+    margin: 20px;
+}
+
+
+/*----------------------treatment-----------------------*/
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+
+}
+/*-----------------treatment images------------*/
+.pain {
+    width:  80%;
+    height: auto;
+    margin: 12px;
+}
+.insomniac {
+    width:  80%;
+    height: auto;
+    margin: 12px;
+}
+.depressed {
+    width:  80%;
+    height: auto;
+    margin: 12px;
+}
+.nervous-system {
+    width:  80%;
+    height: auto;
+    margin: 12px;
+}
+.cancer {
+    width:  80%;
+    height: auto;
+    margin: 12px;
+}
+.migrane {
+    width:  80%;
+    height: auto;
+    margin: 12px;
+}
+/*-----------------treatment boxes--------------*/
+.chronic-pain {
+    width: 31%;
+    background-color: #E26276;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
+}
+.insomnia {
+    width: 31%;
+    background-color: #ff8799;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
+}
+.depression {
+    width: 31%;
+    background-color: #E26276;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
+}
+.multiple-scelerosis {
+    width: 31%;
+    background-color: #ff8799;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
+}
+.cancer-pain {
+    width: 31%;
+    background-color: #E26276;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
+}
+.migranes {
+    width: 31%;
+    background-color: #ff8799;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
+}
+/*--------------media----------*/
+@media screen and (min-width: 992px){
+    .navbar-collapse{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+@media (max-width: 992px
+){
+    .chronic-pain {
+        width: 45%;
+    }
+    .insomnia {
+        width: 45%;
+    }
+    .depression {
+        width: 45%;
+    }
+    .multiple-scelerosis {
+        width: 45%;
+    }
+    .cancer-pain {
+        width: 45%;
+    }
+    .migranes {
+        width: 45%;
+    }
+
+}
+@media (max-width: 500px){
+    .ladder{
+        display: none;
+    }
+    .intro-content{
+        width: 100%;
+        text-align: right;
+        margin-top: 0px;
+    }
+    .footer-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 10px;
+    }
+    .chronic-pain {
+        width: 100%;
+    }
+    .insomnia {
+        width: 100%;
+    }
+    .depression {
+        width: 100%;
+    }
+    .multiple-scelerosis {
+        width: 100%;
+    }
+    .cancer-pain {
+        width: 100%;
+    }
+    .migranes {
+        width: 100%;
+    }
+
+}
